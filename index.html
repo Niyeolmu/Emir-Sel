@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İzmir Gezi Rehberi</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Harici CSS dosyasını bağlıyoruz -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid px-4 px-lg-5">
+            <a class="navbar-brand" href="#">
+                <div class="logo-box">35</div>
+                İZMİR
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#anasayfa"><i class="fa-solid fa-house"></i> Anasayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hakkinda"><i class="fa-solid fa-circle-info"></i> İzmir Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rehber"><i class="fa-regular fa-compass"></i> Gezi Rehberi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#iletisim"><i class="fa-solid fa-phone"></i> İletişim</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button id="darkModeToggle" class="btn btn-outline-primary rounded-circle" title="Gece/Gündüz Modu">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="anasayfa">
+        <div id="greetingBanner" class="position-absolute top-0 start-50 translate-middle-x mt-5 pt-5 text-center text-white" style="z-index: 1000; display: none;">
+            <div class="badge rounded-pill bg-dark bg-opacity-50 px-4 py-2 fs-5" id="userGreeting">
+                <!-- Burası JS ile dolacak -->
+            </div>
+        </div>
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="konak-meydani-izmir.jpg" alt="Konak Meydanı">
+                    <div class="carousel-caption">
+                        <h2>İzmir Akşamları</h2>
+                        <p>Işıklar altında Konak Meydanı.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="izmir-sirince-gezilecek-yerler.avif" alt="Şirince">
+                    <div class="carousel-caption">
+                        <h2>Tarihin İzleri</h2>
+                        <p>Ege'nin otantik köylerinde kaybolun.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="izmir-gezilecek-tarihi-yerler-efes.avif" alt="Efes">
+                    <div class="carousel-caption">
+                        <h2>Antik Dünyalar</h2>
+                        <p>Binlerce yıllık medeniyetlere tanıklık edin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="hakkinda" class="container py-5 mt-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="badge rounded-pill mb-3 px-3 py-2" style="background-color: #e0f2fe; color: #0284c7; font-weight: 700; letter-spacing: 1px;">ŞEHİR REHBERİ</span>
+                <h2 class="display-5 fw-bold mb-4" style="color: var(--dark-blue);">
+                    Güneşin Doğduğu,<br>
+                    <span style="color: var(--accent-orange); font-style: italic;">Huzurun Şehri İzmir</span>
+                </h2>
+                <p class="lead text-muted mb-4">
+                    İzmir, 8500 yıllık görkemli tarihi, ılıman iklimi ve Ege Denizi'nin turkuaz sularıyla kucaklaşan eşsiz coğrafyasıyla Türkiye'nin batıya açılan en aydınlık penceresidir.
+                </p>
+                <p class="text-muted mb-5">
+                    Burada zaman, Kordon'daki palmiyelerin gölgesinde yavaş akar. Tarihi Kemeraltı Çarşısı'nın gizemli sokaklarından modern şehircilik anlayışıyla yükselen yeni merkezlerine kadar İzmir, her köşesinde farklı bir hikaye anlatır.
+                </p>
+                
+                <div class="row g-3 text-center">
+                    <div class="col-4">
+                        <div class="p-3 bg-white rounded-4 shadow-sm border border-light">
+                            <h3 class="fw-bold mb-0" style="color: var(--primary-blue);">4.4M</h3>
+                            <small class="text-muted fw-bold" style="font-size: 0.75rem;">NÜFUS</small>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="p-3 bg-white rounded-4 shadow-sm border border-light">
+                            <h3 class="fw-bold mb-0" style="color: var(--primary-blue);">8.5k</h3>
+                            <small class="text-muted fw-bold" style="font-size: 0.75rem;">YILLIK TARİH</small>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="p-3 bg-white rounded-4 shadow-sm border border-light">
+                            <h3 class="fw-bold mb-0" style="color: var(--primary-blue);">30</h3>
+                            <small class="text-muted fw-bold" style="font-size: 0.75rem;">İLÇE</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="konak-meydani-izmir.jpg" class="img-fluid rounded-4 shadow-lg" alt="İzmir Görünüm" style="height: 500px; width: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <section id="rehber" class="container py-5 mt-5">
+        <div class="text-center mb-5">
+            <span class="badge rounded-pill mb-2 px-3 py-2" style="background-color: #e0f2fe; color: #0284c7; letter-spacing: 1px;">ZAMAN YOLCULUĞU</span>
+            <h2 class="display-6 fw-bold" style="color: var(--dark-blue);">Gezi Rehberi</h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card place-card h-100">
+                    <img src="tarihi-saat-kulesi-izmir.jpg" class="card-img-top" alt="Saat Kulesi">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold" style="color: var(--dark-blue);">Saat Kulesi</h5>
+                        <p class="card-text text-muted mb-4">İzmir'in sembolü olan tarihi yapı.</p>
+                        <button type="button" class="btn btn-custom mt-auto mx-auto" data-bs-toggle="modal" data-bs-target="#modalSaatKulesi">Detayları Gör</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card place-card h-100">
+                    <img src="efes-antik-kent-selcuk-izmir.jpg" class="card-img-top" alt="Efes">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold" style="color: var(--dark-blue);">Efes Antik Kenti</h5>
+                        <p class="card-text text-muted mb-4">UNESCO Dünya Mirası antik şehir.</p>
+                        <button type="button" class="btn btn-custom mt-auto mx-auto" data-bs-toggle="modal" data-bs-target="#modalEfes">Detayları Gör</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card place-card h-100">
+                    <img src="tarihi-asansor-izmir.jpg" class="card-img-top" alt="Asansör">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold" style="color: var(--dark-blue);">Tarihi Asansör</h5>
+                        <p class="card-text text-muted mb-4">Muhteşem İzmir körfezi manzarası.</p>
+                        <button type="button" class="btn btn-custom mt-auto mx-auto" data-bs-toggle="modal" data-bs-target="#modalAsansor">Detayları Gör</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card place-card h-100">
+                    <img src="hisar-camii-izmir.jpg" class="card-img-top" alt="Kemeraltı">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold" style="color: var(--dark-blue);">Kemeraltı Çarşısı</h5>
+                        <p class="card-text text-muted mb-4">Tarihi dokusuyla alışverişin kalbi.</p>
+                        <button type="button" class="btn btn-custom mt-auto mx-auto" data-bs-toggle="modal" data-bs-target="#modalKemeralti">Detayları Gör</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card place-card h-100">
+                    <img src="agora-antik-kenti-izmir.jpg" class="card-img-top" alt="Agora">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold" style="color: var(--dark-blue);">Smyrna Agorası</h5>
+                        <p class="card-text text-muted mb-4">Şehrin merkezinde saklı kalmış tarih.</p>
+                        <button type="button" class="btn btn-custom mt-auto mx-auto" data-bs-toggle="modal" data-bs-target="#modalAgora">Detayları Gör</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card place-card h-100"> 
+                <img src="izmircesme.jpg" class="card-img-top" alt="Çeşme">
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h5 class="card-title fw-bold" style="color: var(--dark-blue);">Çeşme Limanı</h5>
+                        <p class="card-text text-muted mb-4">Tatilin ve masmavi suların adresi.</p>
+                        <button type="button" class="btn btn-custom mt-auto mx-auto" data-bs-toggle="modal" data-bs-target="#modalCesme">Detayları Gör</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim" class="py-5 mt-5 bg-white">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-white p-4 p-md-5 rounded-4 shadow-lg border border-light">
+                        <div class="text-center mb-5">
+                            <h2 class="display-6 fw-bold" style="color: var(--dark-blue);">Bizimle İletişime Geçin</h2>
+                            <p class="text-muted">Öneri, görüş ve sorularınız için form üzerinden bize ulaşabilirsiniz.</p>
+                        </div>
+                        
+                        <form id="contactForm">
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-muted" style="font-size: 0.8rem; letter-spacing: 1px;">ADINIZ SOYADINIZ</label>
+                                    <input type="text" id="nameInput" class="form-control form-control-lg" placeholder="Örn: Ahmet Yılmaz">
+                                    <div class="invalid-feedback">Lütfen isminizi giriniz.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-muted" style="font-size: 0.8rem; letter-spacing: 1px;">E-POSTA ADRESİNİZ</label>
+                                    <input type="email" id="emailInput" class="form-control form-control-lg" placeholder="ahmet@orneksite.com">
+                                    <div class="invalid-feedback">Lütfen geçerli bir e-posta adresi giriniz.</div>
+                                </div>
+                            </div>
+                            <div class="mb-5">
+                                <label class="form-label fw-bold text-muted" style="font-size: 0.8rem; letter-spacing: 1px;">MESAJINIZ</label>
+                                <textarea id="messageInput" class="form-control form-control-lg" rows="5" placeholder="Mesajınızı buraya yazın..."></textarea>
+                                <div class="invalid-feedback">Lütfen bir mesaj yazınız.</div>
+                            </div>
+                            <button type="submit" class="btn btn-custom w-100 py-3 fs-5 shadow-sm">Mesajı Gönder <i class="fa-solid fa-paper-plane ms-2"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-white py-5 mt-auto" style="background-color: var(--dark-blue);">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-3 d-flex align-items-center justify-content-center">
+                <div class="logo-box footer-logo-box">35</div>
+                İZMİR
+            </h3>
+            <p class="text-white-50 mb-4">İzmir'i keşfetmek için çıktığınız bu yolculukta yanınızdayız.</p>
+            <div class="d-flex justify-content-center gap-3 mb-4">
+                <a href="#" class="btn btn-outline-light rounded-circle"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="btn btn-outline-light rounded-circle"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <p class="text-white-50 small mb-0">&copy; 2026 İzmir Tanıtım Projesi. Tüm hakları gizlidir.</p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="modalSaatKulesi" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Saat Kulesi</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="tarihi-saat-kulesi-izmir.jpg" alt="Saat Kulesi" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <p>İzmir Saat Kulesi, Konak Meydanı'nda yer alan ve şehrin en önemli simgesi kabul edilen yapıdır.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalEfes" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Efes Antik Kenti</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="efes-antik-kent-selcuk-izmir.jpg" alt="Efes" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <p>Efes, Klasik Yunan döneminde İyonya'nın on iki şehrinden biriydi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalAsansor" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Tarihi Asansör</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="tarihi-asansor-izmir.jpg" alt="Asansör" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <p>1907 yılında iki cadde arasındaki ulaşımı kolaylaştırmak için inşa edilmiştir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalKemeralti" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Kemeraltı Çarşısı</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="hisar-camii-izmir.jpg" alt="Kemeraltı" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <p>Kızlarağası Hanı ve Kemeraltı Çarşısı, İzmir'in ticaret kalbidir. Tarihi dokusu, baharat kokuları ve geleneksel el sanatlarıyla yaşayan bir müzedir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalAgora" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Smyrna Agorası</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="agora-antik-kenti-izmir.jpg" alt="Agora" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <p>Smyrna Agorası, dünyanın kent merkezinde bulunan en büyük agoralarından biridir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCesme" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Çeşme Limanı</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="izmircesme.jpg" alt="Çeşme" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+                    <p>Çeşme, hem 16. yüzyıldan kalma kalesiyle tarih meraklılarını, hem de masmavi denizi ve rüzgarıyla tatilcileri kendine çeker.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

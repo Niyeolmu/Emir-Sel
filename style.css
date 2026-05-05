@@ -1,0 +1,242 @@
+:root {
+    --primary-blue: #3b82f6; 
+    --dark-blue: #1e3a8a;
+    --accent-orange: #f59e0b; 
+    --bg-light: #f8f9fa;
+    --text-dark: #4b5563;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    padding-top: 80px;
+}
+
+/* --- NAVBAR TASARIMI --- */
+.navbar {
+    background-color: white !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    height: 80px;
+}
+
+/* logo */
+.logo-box {
+    background-color: var(--primary-blue);
+    color: white; /* 35 metninin rengi */
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700; /* 35'i biraz daha belirgin yapalım */
+    margin-right: 12px;
+}
+
+.navbar-brand {
+    color: var(--dark-blue) !important;
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-left: 20px;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link:hover {
+    color: var(--primary-blue) !important;
+}
+
+/* --- CAROUSEL (SLAYT) --- */
+.carousel-item { 
+    height: 85vh; 
+    position: relative; 
+}
+
+.carousel-item img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.carousel-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.carousel-caption {
+    text-align: left;
+    left: 5%; 
+    bottom: 15%; 
+    right: auto; 
+    z-index: 10;
+}
+
+.carousel-caption h2 {
+    font-size: 5rem; 
+    font-weight: 800; 
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.carousel-caption p { 
+    font-size: 1.5rem; 
+    opacity: 0.9; 
+}
+
+.carousel-indicators { 
+    bottom: 30px; 
+    margin-bottom: 0; 
+}
+
+.carousel-indicators button {
+    width: 12px !important; 
+    height: 12px !important; 
+    border-radius: 50%;
+    background-color: #cbd5e1 !important; 
+    border: none !important; 
+    margin: 0 5px !important; 
+    opacity: 0.6 !important; 
+    transition: all 0.4s ease;
+}
+
+.carousel-indicators button.active {
+    width: 40px !important; 
+    border-radius: 10px; 
+    background-color: var(--accent-orange) !important; 
+    opacity: 1 !important;
+}
+
+/**/
+.place-card {
+    border: none; 
+    border-radius: 20px; 
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+    transition: transform 0.3s;
+}
+
+.place-card:hover { 
+    transform: translateY(-10px); 
+}
+
+.card-img-top { 
+    height: 250px; 
+    object-fit: cover; 
+}
+
+/* Butonlar */
+.btn-custom {
+    background-color: var(--primary-blue); 
+    color: white;
+    border-radius: 30px; 
+    padding: 10px 25px; 
+    font-weight: 600; 
+    border: none;
+}
+
+.btn-custom:hover { 
+    background-color: var(--dark-blue); 
+    color: white; 
+}
+
+/* Modal */
+.modal-content { 
+    border-radius: 20px; 
+    border: none; 
+}
+
+.modal-header { 
+    background-color: var(--primary-blue); 
+    color: white; 
+    border-bottom: none; 
+}
+
+/* İletişim Formu */
+.form-control { 
+    border-radius: 15px; 
+    padding: 15px; 
+    background-color: #f1f5f9; 
+    border: none; 
+}
+
+.form-control:focus { 
+    box-shadow: none; 
+    border: 2px solid var(--primary-blue); 
+    background-color: white;
+}
+
+/* Footer'daki logo için küçük ayarlama */
+.footer-logo-box {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    margin-right: 8px;
+    margin-bottom: 0;
+}
+
+/* --- GECE MODU STİLLERİ --- */
+body.dark-mode {
+    --bg-light: #0f172a;
+    --text-dark: #e2e8f0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+body.dark-mode .navbar {
+    background-color: #1e293b !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .navbar-brand {
+    color: #f8fafc !important;
+}
+
+body.dark-mode .nav-link {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .bg-white {
+    background-color: #1e293b !important;
+}
+
+body.dark-mode .card, 
+body.dark-mode .modal-content {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+}
+
+body.dark-mode .card-title,
+body.dark-mode h2,
+body.dark-mode .text-muted {
+    color: #f8fafc !important;
+}
+
+body.dark-mode .form-control {
+    background-color: #334155;
+    color: white;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #94a3b8;
+}
+
+body.dark-mode .shadow-lg,
+body.dark-mode .shadow-sm {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+}
