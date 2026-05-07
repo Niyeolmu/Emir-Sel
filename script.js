@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (hour >= 5 && hour < 12) {
             message = "Günaydın! İzmir'de sabahın keyfini çıkarın.";
-            iconClass = "fa-sun";
+            iconClass = "fa-mug-hot"; // Sabah kahvesi
         } else if (hour >= 12 && hour < 18) {
             message = "İyi Günler! İzmir'in güneşli sokaklarını keşfedin.";
-            iconClass = "fa-cloud-sun";
+            iconClass = "fa-compass"; // Gezi/Keşif
         } else {
             message = "İyi Akşamlar! Kordon'da gün batımı bir başkadır.";
-            iconClass = "fa-moon";
+            iconClass = "fa-star-and-crescent"; // Akşam/Yıldız
         }
 
         userGreeting.textContent = message;
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const icon = darkModeToggle.querySelector('i');
             if (icon) {
                 if (body.classList.contains('dark-mode')) {
-                    icon.className = 'fa-solid fa-sun';
+                    icon.className = 'fa-solid fa-sun'; // Gündüze dönmek için güneş
                 } else {
                     icon.className = 'fa-solid fa-moon';
                 }
@@ -118,4 +118,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- 4. MODAL DİNAMİK ZOOM ANİMASYONU ---
+    document.addEventListener('show.bs.modal', (event) => {
+        const button = event.relatedTarget;
+        const modal = event.target;
+        const dialog = modal.querySelector('.modal-dialog');
+
+        if (button && dialog) {
+            const rect = button.getBoundingClientRect();
+            // Butonun merkez noktasını hesapla
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            
+            // Transform origin'i butonun olduğu yere sabitle
+            dialog.style.transformOrigin = `${x}px ${y}px`;
+        }
+    });
+
+    document.addEventListener('hide.bs.modal', (event) => {
+        const modal = event.target;
+        const dialog = modal.querySelector('.modal-dialog');
+        
+        // Kapanırken de aynı origin'den küçülmesini sağla
+        // Bootstrap zaten animasyonu bitirene kadar 'show' class'ını tutar
+        // Origin zaten set edilmiş durumda kalmalı, ancak dilerseniz sıfırlayabilirsiniz
+        // Ama genellikle bırakmak kapanış animasyonu için daha iyidir.
+    });
 });

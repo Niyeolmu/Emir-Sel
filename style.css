@@ -21,16 +21,13 @@ body {
 
 /* logo */
 .logo-box {
-    background-color: var(--primary-blue);
-    color: white; /* 35 metninin rengi */
+    background-color: transparent;
+    border: none;
     width: 40px;
     height: 40px;
-    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 700; /* 35'i biraz daha belirgin yapalım */
     margin-right: 12px;
 }
 
@@ -41,6 +38,14 @@ body {
     letter-spacing: -0.5px;
     display: flex;
     align-items: center;
+}
+
+.navbar-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 2px;
+    margin-top: -8px; /* Alignment fix for kule-logo */
 }
 
 .nav-link {
@@ -142,10 +147,24 @@ body {
 .navbar-toggler-icon {
     width: 24px;
     height: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    transform: rotate(-90deg);
 }
 
 /* Navbar Animasyonu (Mobil) */
 @media (max-width: 991.98px) {
+    .navbar > .container-fluid {
+        align-items: flex-start !important; /* Prevent brand/toggler from moving when menu expands */
+        padding-top: 15px;
+    }
+
+    .navbar-brand, .navbar-toggler {
+        transition: none !important;
+    }
+
     .navbar-collapse {
         transition: all 0.4s ease-in-out;
         overflow: hidden;
@@ -231,6 +250,19 @@ body.dark-mode .navbar-toggler-icon {
     border-bottom: none; 
 }
 
+/* Modal Açılış/Kapanış Animasyonu */
+.modal.fade .modal-dialog {
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+}
+
 /* İletişim Formu */
 .form-control { 
     border-radius: 15px; 
@@ -245,14 +277,7 @@ body.dark-mode .navbar-toggler-icon {
     background-color: white;
 }
 
-/* Footer'daki logo için küçük ayarlama */
-.footer-logo-box {
-    width: 32px;
-    height: 32px;
-    font-size: 0.9rem;
-    margin-right: 8px;
-    margin-bottom: 0;
-}
+/* Footer'daki logo box artık kullanılmıyor */
 
 /* --- GREETING BANNER MODERN --- */
 .greeting-container {
@@ -277,6 +302,25 @@ body.dark-mode .navbar-toggler-icon {
     min-width: 320px;
 }
 
+@media (max-width: 480px) {
+    .greeting-container {
+        width: 95%;
+        max-width: 400px;
+    }
+    .greeting-content {
+        min-width: auto;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+    }
+    .greeting-text {
+        font-size: 0.9rem;
+        white-space: normal;
+        line-height: 1.4;
+    }
+}
+
 body.dark-mode .greeting-content {
     background: rgba(30, 41, 59, 0.85);
     border-color: rgba(255, 255, 255, 0.1);
@@ -294,6 +338,7 @@ body.dark-mode .greeting-content {
     justify-content: center;
     font-size: 1.1rem;
     box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+    flex-shrink: 0;
 }
 
 .greeting-text {
@@ -367,31 +412,42 @@ body.dark-mode #darkModeToggle i {
 }
 
 /* --- GREETING ICONS COLORING --- */
-.greeting-icon i.fa-sun {
-    color: #f59e0b;
-    filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.5));
-    animation: pulseSun 2s infinite alternate;
+.greeting-icon i.fa-mug-hot {
+    color: #92400e;
 }
 
-.greeting-icon i.fa-cloud-sun {
-    color: #38bdf8;
-    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.5));
+.greeting-icon i.fa-compass {
+    color: #0284c7;
 }
 
-.greeting-icon i.fa-moon {
-    color: #e2e8f0;
-    filter: drop-shadow(0 0-8px rgba(226, 232, 240, 0.6));
-    animation: swayMoon 3s infinite ease-in-out;
+.greeting-icon i.fa-star-and-crescent {
+    color: #f8fafc;
 }
 
-@keyframes pulseSun {
-    from { transform: scale(1); opacity: 0.9; }
-    to { transform: scale(1.15); opacity: 1; }
+body.dark-mode #darkModeToggle i.fa-sun {
+    color: #fbbf24 !important;
+    text-shadow: none;
+    animation: none; /* Normal dururken animasyon kapalı */
+}
+
+body.dark-mode #darkModeToggle:hover i.fa-sun {
+    animation: glowSun 1.5s infinite alternate; /* Sadece hoverda aktif */
+}
+
+@keyframes glowSun {
+    from { 
+        text-shadow: 0 0 5px rgba(251, 191, 36, 0.4);
+        transform: rotate(0deg) scale(1);
+    }
+    to { 
+        text-shadow: 0 0 15px rgba(251, 191, 36, 0.8), 0 0 25px rgba(251, 191, 36, 0.4);
+        transform: rotate(30deg) scale(1.15);
+    }
 }
 
 @keyframes swayMoon {
-    0%, 100% { transform: rotate(-10deg); }
-    50% { transform: rotate(10deg); }
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
 }
 
 body.dark-mode {
