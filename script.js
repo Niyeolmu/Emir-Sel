@@ -8,20 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const hour = new Date().getHours();
         let message = "";
         let iconClass = "";
+        let bgColor = "";
 
-        if (hour >= 5 && hour < 12) {
+        if (hour >= 5 && hour < 10) {
             message = "Günaydın! İzmir'de sabahın keyfini çıkarın.";
-            iconClass = "fa-mug-hot"; // Sabah kahvesi
-        } else if (hour >= 12 && hour < 18) {
+            iconClass = "fa-mountain-sun"; 
+            bgColor = "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)"; // Sabah pembeliği
+        } else if (hour >= 10 && hour < 18) {
             message = "İyi Günler! İzmir'in güneşli sokaklarını keşfedin.";
-            iconClass = "fa-compass"; // Gezi/Keşif
+            iconClass = "fa-sun"; 
+            bgColor = "linear-gradient(135deg, #f6d365 0%, #fda085 100%)"; // Parlak güneş
         } else {
-            message = "İyi Akşamlar! Kordon'da gün batımı bir başkadır.";
-            iconClass = "fa-star-and-crescent"; // Akşam/Yıldız
+            message = "İyi Geceler! Kordon'da ay ışığı bir başkadır.";
+            iconClass = "fa-moon"; 
+            bgColor = "linear-gradient(135deg, #0f172a 0%, #334155 100%)"; // Gece derinliği
         }
 
         userGreeting.textContent = message;
         userGreetingIcon.className = `fa-solid ${iconClass}`;
+        userGreetingIcon.parentElement.style.background = bgColor;
         
         greetingBanner.style.display = 'block';
         
@@ -37,25 +42,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 2. GECE/GÜNDÜZ MODU ---
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
+    const logoImg = document.querySelector('.navbar-logo-img');
 
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             const icon = darkModeToggle.querySelector('i');
+            
+            const isDarkMode = body.classList.contains('dark-mode');
+            
             if (icon) {
-                if (body.classList.contains('dark-mode')) {
+                if (isDarkMode) {
                     icon.className = 'fa-solid fa-sun'; // Gündüze dönmek için güneş
                 } else {
                     icon.className = 'fa-solid fa-moon';
                 }
             }
-            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            
+            // Logo değişim mantığı
+            if (logoImg) {
+                logoImg.src = isDarkMode ? 'gecemod-logo.png' : 'kule-logo1.png';
+            }
+            
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
         });
 
         if (localStorage.getItem('theme') === 'dark') {
             body.classList.add('dark-mode');
             const icon = darkModeToggle.querySelector('i');
             if (icon) icon.className = 'fa-solid fa-sun';
+            
+            // Başlangıçta dark mode ise logoyu güncelle
+            if (logoImg) {
+                logoImg.src = 'gecemod-logo.png';
+            }
         }
     }
 
